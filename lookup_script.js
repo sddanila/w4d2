@@ -24,7 +24,7 @@ client.connect((err) => {
       console.log(`Found (${result.rowCount}) persons(s) by the name '${name}'`)
       let resultArray = result.rows;
       resultArray.forEach(function(element, index){
-        console.log(`${index + 1}: ${element.first_name} ${element.last_name}, born on '${element.birthdate.getFullYear()}-${element.birthdate.getMonth()+1}-${element.birthdate.getDate()}'`);
+        console.log(`${index + 1}: ${element.first_name} ${element.last_name}, born on '${element.birthdate.toISOString().substr(0, 10)}'`);
       })
       client.end();
     });
